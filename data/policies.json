@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Borrowing & Loan Periods",
+    "content": "Library cardholders may borrow up to 10 physical items at a time. Standard loan period is 3 weeks for books and audiobooks, 1 week for DVDs and video games, and 2 weeks for magazines. Items may be renewed up to 3 times online, by phone, or in person, provided no holds exist on the item. Digital checkouts via OverDrive/Libby are limited to 5 items simultaneously with a 21-day loan period.",
+    "url": "https://yourlibrary.org/policies/borrowing"
+  },
+  {
+    "title": "Fines & Fees",
+    "content": "Overdue fines are $0.25 per day for standard items, $1.00 per day for DVDs and video games, with a maximum fine of $10.00 per item. Lost or damaged items are billed at the replacement cost plus a $5.00 processing fee. Accounts with outstanding balances over $10.00 will have borrowing privileges suspended until the balance is resolved. Fines may be paid in person, online, or by mail.",
+    "url": "https://yourlibrary.org/policies/fines"
+  },
+  {
+    "title": "Library Card Eligibility",
+    "content": "Library cards are available free of charge to all residents of the county. Proof of current address is required (utility bill, lease, or government ID). Non-residents may purchase a non-resident card for $50/year. Cards expire every 3 years and must be renewed with updated address verification. Minors under 18 require a parent or guardian signature to obtain a card.",
+    "url": "https://yourlibrary.org/policies/library-cards"
+  },
+  {
+    "title": "Computer & Internet Use",
+    "content": "Public computers are available on a first-come, first-served basis with a 1-hour session limit when others are waiting. Sessions may be extended if no one is waiting. Users must agree to the Acceptable Use Policy before accessing the internet. Printing costs $0.10 per black-and-white page and $0.25 per color page. Wi-Fi is available throughout the building at no cost and does not require a library card.",
+    "url": "https://yourlibrary.org/policies/computers"
+  },
+  {
+    "title": "Room & Space Reservations",
+    "content": "Meeting rooms are available to community groups and individuals for non-commercial use. Rooms seat 10–50 people depending on the space. Reservations must be made at least 48 hours in advance and up to 90 days ahead. Rooms are free for non-profit organizations; a $25/hour fee applies for others. Cancellations must be made 24 hours in advance to avoid a $15 no-show fee.",
+    "url": "https://yourlibrary.org/policies/room-reservations"
+  },
+  {
+    "title": "Children & Teen Programs",
+    "content": "Children under 8 must be accompanied by a parent or caregiver at all times. Children 8–12 may use the library independently during open hours. Teen programs (ages 13–17) are held in the designated teen space. Parents/guardians are responsible for their children's conduct and any damage caused. The library is not responsible for unsupervised children left in the building.",
+    "url": "https://yourlibrary.org/policies/children"
+  },
+  {
+    "title": "Conduct & Behavior",
+    "content": "All patrons are expected to treat staff and other visitors with respect. Disruptive behavior including loud conversations, offensive language, and harassment will result in a warning followed by removal from the premises. Smoking, alcohol, and pets (except service animals) are not permitted. Food and covered beverages are allowed in designated areas. Repeated violations may result in a temporary or permanent ban.",
+    "url": "https://yourlibrary.org/policies/conduct"
+  },
+  {
+    "title": "Interlibrary Loan (ILL)",
+    "content": "Patrons may request items not available in our collection through the Interlibrary Loan service. Requests take 5–14 business days to fulfill. There is no fee for standard ILL requests; rush requests cost $5.00. Items borrowed via ILL follow the lending library's loan period and may not be renewed. Patrons will be notified by email or phone when items arrive.",
+    "url": "https://yourlibrary.org/policies/ill"
+  }
+]

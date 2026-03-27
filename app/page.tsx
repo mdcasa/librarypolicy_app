@@ -10,6 +10,7 @@ interface Message {
 }
 
 const SUGGESTED_QUESTIONS = [
+  "What hours are you open?",
   "How many items can I borrow at once?",
   "What are the late return fees?",
   "How do I get a library card?",

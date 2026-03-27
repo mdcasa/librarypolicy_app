@@ -175,7 +175,26 @@ export default function AdminPage() {
   return (
     <main style={{ maxWidth: 800, margin: "40px auto", padding: 24, fontFamily: "sans-serif" }}>
       <h1 style={{ marginBottom: 8 }}>YCL Admin Panel</h1>
-      <p style={{ color: "#666", marginBottom: 24 }}>Manage FAQs and jokes for the library chatbot.</p>
+<p style={{ color: "#666", marginBottom: 16 }}>Manage FAQs and jokes for the library chatbot.</p>
+
+{/* Disclaimer Banner */}
+<div style={{ background: "#fff3cd", border: "1px solid #ffc107", borderRadius: 8, padding: 16, marginBottom: 24 }}>
+  <p style={{ fontWeight: "bold", marginTop: 0, color: "#856404" }}>⚠️ Important: Do NOT enter any of the following information:</p>
+  <ul style={{ color: "#856404", marginBottom: 0 }}>
+    <li>Passwords or system login credentials</li>
+    <li>Patron personal information (names, addresses, phone numbers, emails)</li>
+    <li>Library card numbers or account numbers</li>
+    <li>Staff personal information</li>
+    <li>Financial information (credit card numbers, bank details)</li>
+    <li>Patron borrowing or checkout history</li>
+    <li>Patron fine or fee account details</li>
+    <li>Internal staff procedures or security protocols</li>
+    <li>Building access codes or security information</li>
+    <li>Vendor contract details or pricing</li>
+    <li>Personnel or HR information</li>
+    <li>Any information protected by SC library confidentiality laws</li>
+  </ul>
+</div>
 
       {/* Tabs */}
       <div style={{ display: "flex", gap: 12, marginBottom: 32 }}>

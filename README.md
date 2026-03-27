@@ -1,126 +1,56 @@
-# 📚 Library Policy Assistant
+# York County Library Policy Assistant
 
-A chatbot that answers patron questions about library policies using Claude AI. Built with Next.js and deployable to Vercel in minutes.
+A chatbot that answers patron questions about York County Library policies using AI.
 
-## Features
-
-- 💬 Conversational chat interface
-- 📄 Answers grounded in your actual policy documents
-- 🔗 Returns direct links to the relevant policy pages
-- 📱 Fully responsive (mobile-friendly)
-- ⚡ Streaming-ready Next.js API route
-
----
-
-## Getting Started
-
-### 1. Clone and install
-
-```bash
-git clone https://github.com/YOUR_USERNAME/library-policy-bot.git
-cd library-policy-bot
-npm install
-```
-
-### 2. Add your API key
-
-Copy the example env file and add your Anthropic API key:
-
-```bash
-cp .env.local.example .env.local
-```
-
-Then edit `.env.local`:
-```
-ANTHROPIC_API_KEY=sk-ant-...your-key...
-```
-
-Get your key at [console.anthropic.com](https://console.anthropic.com/).
-
-### 3. Add your policies
-
-Edit `data/policies.json`. Each policy needs:
-
-```json
-[
-  {
-    "title": "Policy Name",
-    "content": "Full text of the policy as it should be understood by the AI.",
-    "url": "https://yourlibrary.org/policies/policy-name"
-  }
-]
-```
-
-Add as many policies as you need. The AI will only answer based on what's in this file.
-
-### 4. Run locally
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) — you should see the chatbot!
-
----
-
-## Deploying to Vercel
-
-### Option A: Via GitHub (recommended)
-
-1. Push your code to GitHub (`.env.local` is gitignored — never committed)
-2. Go to [vercel.com](https://vercel.com) → **Add New Project**
-3. Import your GitHub repo
-4. Under **Environment Variables**, add:
-   - `ANTHROPIC_API_KEY` = your key
-5. Click **Deploy** ✅
-
-Every push to `main` will auto-deploy.
-
-### Option B: Vercel CLI
-
-```bash
-npm i -g vercel
-vercel
-```
-
-Then add the env variable in your Vercel project dashboard under **Settings → Environment Variables**.
-
----
-
-## Project Structure
-
-```
-library-policy-bot/
-├── app/
-│   ├── api/chat/route.ts   ← Claude API integration
-│   ├── page.tsx            ← Chat UI
-│   ├── page.module.css     ← Styles
-│   ├── layout.tsx          ← Root layout
-│   └── globals.css         ← Global styles
-├── data/
-│   └── policies.json       ← YOUR POLICIES GO HERE
-├── .env.local              ← API key (never commit)
-└── .env.local.example      ← Template for env setup
-```
-
----
-
-## Customization
-
-### Change the library name
-Edit the `<h1>` in `app/page.tsx` and the `metadata` in `app/layout.tsx`.
-
-### Adjust the AI's behavior
-Edit the `SYSTEM_PROMPT` in `app/api/chat/route.ts` to change tone, response format, or instructions.
-
-### Update policies
-Just edit `data/policies.json` — no code changes needed. Redeploy when done.
-
----
+## What It Does
+Patrons can ask natural language questions about library policies and get accurate, 
+cited answers powered by the Anthropic Claude API. The bot reads directly from 
+official policy PDF documents stored in the repository.
 
 ## Tech Stack
+- **Framework:** Next.js (App Router)
+- **AI:** Anthropic Claude API (claude-sonnet-4-20250514)
+- **Deployment:** Vercel
+- **Version Control:** GitHub
 
-- [Next.js 15](https://nextjs.org/) — React framework
-- [Anthropic Claude](https://www.anthropic.com/) — AI responses
-- [react-markdown](https://github.com/remarkjs/react-markdown) — Renders markdown links in responses
-- [Vercel](https://vercel.com/) — Hosting & deployment
+## Project Structure
+```
+/app
+  page.tsx          # Main chat UI
+  layout.tsx        # App layout and fonts
+  /api/chat
+    route.ts        # API endpoint that calls Claude
+/lib
+  fetchPolicies.ts  # Reads and parses policy PDFs
+/public
+  ycl-logo.png      # Library logo
+  /policies         # All library policy PDF files
+```
+
+## How It Works
+1. When a user asks a question, the app reads all PDFs from `/public/policies`
+2. The text is extracted using `pdf2json`
+3. The extracted text is passed to Claude as context along with the user's question
+4. Claude answers using only the policy documents provided
+
+## Adding or Updating Policies
+1. Export the updated policy as a PDF
+2. Add it to `/public/policies` in the repo
+3. Commit and push to main — Vercel will redeploy automatically
+
+## Environment Variables
+Set these in Vercel dashboard under Project Settings → Environment Variables:
+- `ANTHROPIC_API_KEY` — your Anthropic API key
+
+## Local Development
+```bash
+npm install
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000)
+
+## Deployment
+Push to the `main` branch on GitHub — Vercel deploys automatically.
+
+## Last Updated
+March 2026 — Migrated from Google Drive to local PDF storage in repo.

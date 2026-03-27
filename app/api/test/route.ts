@@ -1,12 +1,18 @@
-import { fetchPoliciesFromDrive } from "@/lib/fetchPolicies";
-
 export async function GET() {
   try {
-    const policies = await fetchPoliciesFromDrive();
+    const FOLDER_ID = "1adJ7JRP9C-TYcASwqVsMlMQOudvcpvAr";
+    const API_KEY = process.env.GOOGLE_API_KEY;
+    
+    const url = `https://www.googleapis.com/drive/v3/files?q='${FOLDER_ID}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType)`;
+    
+    const res = await fetch(url);
+    const data = await res.json();
+    
     return Response.json({ 
-      count: policies.length,
-      titles: policies.map(p => p.title),
-      firstContent: policies[0]?.content?.slice(0, 200)
+      status: res.status,
+      apiKeyExists: !!API_KEY,
+      apiKeyLength: API_KEY?.length,
+      data 
     });
   } catch (error) {
     return Response.json({ error: String(error) }, { status: 500 });

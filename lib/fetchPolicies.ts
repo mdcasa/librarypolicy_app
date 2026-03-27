@@ -70,7 +70,7 @@ export async function fetchPoliciesFromDrive(): Promise<Policy[]> {
 
     return policies;
   } catch (error) {
-    console.error("Error fetching policies from Drive:", error);
+    console.error("Error fetching policies from Drive:", JSON.stringify(error, null, 2));
     return [];
   }
 }

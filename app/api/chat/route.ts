@@ -67,7 +67,7 @@ Reference URL: ${p.url}`
 
     return NextResponse.json({ reply });
   } catch (error) {
-    console.error("Claude API error:", JSON.stringify(error, null, 2), error?.message, error?.cause);
+   console.error("Claude API error:", JSON.stringify(error, null, 2), String(error));
     return NextResponse.json(
       { error: "Failed to get response. Please try again." },
       { status: 500 }

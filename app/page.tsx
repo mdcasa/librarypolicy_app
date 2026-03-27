@@ -82,7 +82,7 @@ export default function Home() {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <div className={styles.headerLogo}>
-  <img src="/ycl-logo.jpg" alt="York County Library" height={48} />
+  <img src="/ycl-logo.png" alt="York County Library" height={48} />
 </div>
           <div>
             <h1 className={styles.headerTitle}>Library Policy Assistant</h1>

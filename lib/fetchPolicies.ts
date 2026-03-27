@@ -25,6 +25,9 @@ function parsePDF(filePath: string): Promise<string> {
 export async function fetchPoliciesFromDrive(): Promise<Policy[]> {
   try {
     const policiesDir = path.join(process.cwd(), "public", "policies");
+console.log("Looking for policies in:", policiesDir);
+const allFiles = fs.readdirSync(policiesDir);
+console.log("Files found:", allFiles);
     const files = fs.readdirSync(policiesDir);
 
     const policies: Policy[] = [];

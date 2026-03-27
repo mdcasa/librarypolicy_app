@@ -19,17 +19,19 @@ export default function AdminPage() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const login = async () => {
-    const res = await fetch("/api/faqs", {
-      headers: { "x-admin-password": password },
-    });
-    if (res.ok) {
-      setIsAuthenticated(true);
-      loadFaqs();
-    } else {
-      setMessage("Incorrect password");
-    }
-  };
+const login = async () => {
+  const res = await fetch("/api/faqs/auth", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ password }),
+  });
+  if (res.ok) {
+    setIsAuthenticated(true);
+    loadFaqs();
+  } else {
+    setMessage("Incorrect password");
+  }
+};
 
   const loadFaqs = async () => {
     const res = await fetch("/api/faqs");

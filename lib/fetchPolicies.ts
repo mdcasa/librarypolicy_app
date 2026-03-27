@@ -16,16 +16,10 @@ async function listFiles() {
 }
 
 async function fetchGoogleDocText(fileId: string): Promise<string> {
-  const url = `https://docs.googleapis.com/v1/documents/${fileId}?key=${API_KEY}`;
+  const url = `https://www.googleapis.com/drive/v3/files/${fileId}/export?mimeType=text/plain&key=${API_KEY}`;
   const res = await fetch(url);
   if (!res.ok) return "";
-  const doc = await res.json();
-  const text = doc.body?.content
-    ?.flatMap((block: any) =>
-      block.paragraph?.elements?.map((el: any) => el.textRun?.content || "") || []
-    )
-    .join("") || "";
-  return text.trim();
+  return await res.text();
 }
 
 async function fetchExportedText(fileId: string, mimeType: string): Promise<string> {

@@ -121,13 +121,23 @@ export default function AdminPage() {
       {/* Add FAQ Form */}
       <div style={{ background: "#f5f5f5", padding: 24, borderRadius: 8, marginBottom: 40 }}>
         <h2 style={{ marginTop: 0 }}>Add New FAQ</h2>
-        <input
-          type="text"
-          placeholder="Category (e.g. Library Cards, Hours, Events)"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          style={{ width: "100%", padding: 10, marginBottom: 12, fontSize: 15, boxSizing: "border-box", borderRadius: 4, border: "1px solid #ddd" }}
-        />
+      <select
+  value={category}
+  onChange={(e) => setCategory(e.target.value)}
+  style={{ width: "100%", padding: 10, marginBottom: 12, fontSize: 15, boxSizing: "border-box", borderRadius: 4, border: "1px solid #ddd", background: "#fff" }}
+>
+  <option value="">Select a category...</option>
+  <option value="Borrowing & Returns">Borrowing & Returns</option>
+  <option value="Fines & Fees">Fines & Fees</option>
+  <option value="Events & Programs">Events & Programs</option>
+  <option value="Kids & Teens">Kids & Teens</option>
+  <option value="Computer & Technology">Computer & Technology</option>
+  <option value="Meeting Rooms">Meeting Rooms</option>
+  <option value="Interlibrary Loan">Interlibrary Loan</option>
+  <option value="Online Resources">Online Resources</option>
+  <option value="General">General</option>
+  <option value="Other">Other</option>
+</select>
         <input
           type="text"
           placeholder="Question"

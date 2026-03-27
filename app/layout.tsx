@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Library Policy Assistant",
-  description: "Ask questions about library policies and get instant answers.",
+  title: "YCL Chat Assistant",
+  description: "Ask anything about York County Library — services, hours, policies, events, and more.",
 };
 
 export default function RootLayout({

@@ -85,8 +85,8 @@ export default function Home() {
   <img src="/ycl-logo.png" alt="York County Library" height={48} />
 </div>
           <div>
-            <h1 className={styles.headerTitle}>Library Policy Assistant</h1>
-            <p className={styles.headerSub}>Ask anything about our policies</p>
+            <h1 className={styles.headerTitle}>YCL Chat Assistant</h1>
+<p className={styles.headerSub}>Ask anything about our library</p>
           </div>
         </div>
       </header>

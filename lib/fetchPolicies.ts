@@ -42,7 +42,7 @@ export async function fetchPoliciesFromDrive(): Promise<Policy[]> {
 
       policies.push({
         title,
-        content: text.slice(0, 3000),
+        content: text.slice(0, 8000),
         url: `/policies/${filename}`,
       });
     }

@@ -82,12 +82,8 @@ export default function Home() {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <div className={styles.headerLogo}>
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <rect x="3" y="4" width="6" height="20" rx="1" fill="currentColor" opacity="0.9"/>
-              <rect x="11" y="4" width="6" height="20" rx="1" fill="currentColor" opacity="0.7"/>
-              <rect x="19" y="4" width="6" height="20" rx="1" fill="currentColor" opacity="0.5"/>
-            </svg>
-          </div>
+  <img src="/ycl-logo.jpg" alt="York County Library" height={48} />
+</div>
           <div>
             <h1 className={styles.headerTitle}>Library Policy Assistant</h1>
             <p className={styles.headerSub}>Ask anything about our policies</p>

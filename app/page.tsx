@@ -10,6 +10,7 @@ interface Message {
 }
 
 const SUGGESTED_QUESTIONS = [
+  "What hours are you open?",
   "How many items can I borrow at once?",
   "What are the late return fees?",
   "How do I get a library card?",
@@ -84,10 +85,23 @@ export default function Home() {
           <div className={styles.headerLogo}>
   <img src="/ycl-logo.png" alt="York County Library" height={48} />
 </div>
-          <div>
+         <div>
             <h1 className={styles.headerTitle}>YCL Chat Assistant</h1>
-<p className={styles.headerSub}>Ask anything about our library</p>
+            <p className={styles.headerSub}>Ask anything about our library</p>
           </div>
+          {!isEmpty && (
+            <button
+              className={styles.resetBtn}
+              onClick={() => {
+                setMessages([]);
+                setError(null);
+                setInput("");
+              }}
+              title="Start over"
+            >
+              🔄 Start Over
+            </button>
+          )}
         </div>
       </header>
 

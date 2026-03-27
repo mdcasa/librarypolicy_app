@@ -394,3 +394,20 @@
   .bubble { max-width: 90%; }
   .emptyTitle { font-size: 1.35rem; }
 }
+.resetBtn {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.resetBtn:hover {
+  background: var(--gold-pale);
+}

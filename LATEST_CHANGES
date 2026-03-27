@@ -1,0 +1,77 @@
+# York County Library Policy Chatbot
+
+AI chatbot that answers patron questions about YCL library policies using PDFs stored in the repo.
+
+## What the App Does
+Patrons can ask natural language questions about library policies and get accurate, cited answers powered by the Anthropic Claude API. The bot reads directly from official policy PDF documents stored in the repository.
+
+## Tech Stack
+- **Framework:** Next.js (App Router)
+- **AI:** Anthropic Claude API (`claude-sonnet-4-20250514`)
+- **PDF Parsing:** `pdf2json`
+- **Deployment:** Vercel
+- **Version Control:** GitHub (repo: `mdcasa/librarypolicy_app`)
+
+## Key Files
+```
+/app/page.tsx              # Chat UI
+/app/layout.tsx            # Layout and fonts
+/app/api/chat/route.ts     # API endpoint calling Claude
+/lib/fetchPolicies.ts      # Reads and parses PDFs
+/public/ycl-logo.png       # Library logo
+/public/policies/          # All policy PDFs
+```
+
+## How It Works
+1. When a user asks a question, the app reads all PDFs from `/public/policies`
+2. Text is extracted using `pdf2json`
+3. Extracted text is passed to Claude as context along with the user's question
+4. Claude answers using only the policy documents provided
+
+## Adding or Updating Policies
+1. Export the updated policy as a PDF
+2. Add it to `/public/policies` in the repo
+3. Commit and push to main — Vercel redeploys automatically
+
+## Environment Variables
+Set in Vercel dashboard under Project Settings → Environment Variables:
+- `ANTHROPIC_API_KEY` — your Anthropic API key
+
+## Branch Workflow
+- `git checkout dev` → work on preview/test environment
+- `git checkout main` → live production site
+- Always run `git branch` to confirm which branch you're on
+- Merge dev to main when ready to go live:
+```bash
+git checkout main
+git merge dev
+git push origin main
+```
+
+## Common Git Commands
+```bash
+git branch                  # check current branch
+git checkout dev            # switch to dev
+git checkout main           # switch to main
+git add .                   # stage changes
+git commit -m "message"     # commit
+git pull origin main        # sync before pushing
+git push origin dev         # push to dev/preview
+git push origin main        # push to production
+```
+
+## Local Development
+```bash
+npm install
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000)
+
+## Vercel Preview URL
+Find it in Vercel Dashboard → Deployments → dev branch → Visit
+
+## Security
+The system prompt is hardened to prevent jailbreaking — the bot will only answer questions about YCL library policies and cannot be redirected to other tasks.
+
+## Last Updated
+March 2026

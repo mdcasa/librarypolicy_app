@@ -75,4 +75,24 @@ Reference URL: ${p.url}`
 `;
 
     const response = await client.messages.create({
-      mod
+      model: "claude-sonnet-4-20250514",
+      max_tokens: 1024,
+      system: SYSTEM_PROMPT,
+      messages: messages.map((m) => ({
+        role: m.role,
+        content: m.content,
+      })),
+    });
+
+    const reply =
+      response.content[0].type === "text" ? response.content[0].text : "";
+
+    return NextResponse.json({ reply });
+  } catch (error) {
+    console.error("Claude API error:", JSON.stringify(error, null, 2), String(error));
+    return NextResponse.json(
+      { error: "Failed to get response. Please try again." },
+      { status: 500 }
+    );
+  }
+}

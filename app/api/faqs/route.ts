@@ -42,6 +42,28 @@ export async function POST(req: NextRequest) {
   return NextResponse.json(data[0]);
 }
 
+// PUT update FAQ
+export async function PUT(req: NextRequest) {
+  const password = req.headers.get("x-admin-password");
+  if (password !== process.env.ADMIN_PASSWORD) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const { id, category, question, answer } = await req.json();
+
+  const { data, error } = await supabase
+    .from("faqs")
+    .update({ category, question, answer })
+    .eq("id", id)
+    .select();
+
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  return NextResponse.json(data[0]);
+}
+
 // DELETE a FAQ
 export async function DELETE(req: NextRequest) {
   const password = req.headers.get("x-admin-password");
